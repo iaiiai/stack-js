@@ -1,4 +1,4 @@
-import { posts } from '../index'
+import { posts } from '../domElements'
 import { stack, counter } from '../data/stack'
 import makeid from '../utils/MakeID'
 
@@ -12,8 +12,10 @@ export const addPost = () => {
     stack.push(makeid(5))
     if (stack.length > before) {
         const li = document.createElement("li")
-        const title = document.createTextNode(stack[counter])
-        li.id = stack[counter]
+        const title = document.createTextNode(stack[before])
+        li.id = stack[before]
+        console.log(stack)
+        console.log("ID:", li.id)
         li.className = "list-group-item"
         li.appendChild(title)
         posts.appendChild(li)
@@ -22,11 +24,13 @@ export const addPost = () => {
 
 export const deletePost = () => {
     const removed = stack.pop()
-    if (counter === 0) {
+    const before = stack.length
+    console.log("REMOVED", removed)
+    if (before === 0) {
+        console.log(stack.length)
         posts.innerHTML = "<h1> Empty stack. </h1>"
         return
     }
-    counter-=1
     const getRemoved = document.getElementById(removed)
     getRemoved.remove()
 }

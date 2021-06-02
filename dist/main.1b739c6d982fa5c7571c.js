@@ -16,7 +16,7 @@
   \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"addPost\": () => (/* binding */ addPost),\n/* harmony export */   \"deletePost\": () => (/* binding */ deletePost)\n/* harmony export */ });\n/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../index */ \"./src/index.js\");\n/* harmony import */ var _data_stack__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../data/stack */ \"./src/data/stack.js\");\n/* harmony import */ var _utils_MakeID__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/MakeID */ \"./src/utils/MakeID.js\");\n\r\n\r\n\r\n\r\nif (_data_stack__WEBPACK_IMPORTED_MODULE_1__.stack.length === 0) {\r\n    _index__WEBPACK_IMPORTED_MODULE_0__.posts.innerHTML = \"<h1>Add or reduce elements!</h1>\"\r\n}\r\n\r\n\r\nconst addPost = () => {\r\n    const before = _data_stack__WEBPACK_IMPORTED_MODULE_1__.stack.length\r\n    _data_stack__WEBPACK_IMPORTED_MODULE_1__.stack.push((0,_utils_MakeID__WEBPACK_IMPORTED_MODULE_2__.default)(5))\r\n    if (_data_stack__WEBPACK_IMPORTED_MODULE_1__.stack.length > before) {\r\n        const li = document.createElement(\"li\")\r\n        const title = document.createTextNode(_data_stack__WEBPACK_IMPORTED_MODULE_1__.stack[_data_stack__WEBPACK_IMPORTED_MODULE_1__.counter])\r\n        li.id = _data_stack__WEBPACK_IMPORTED_MODULE_1__.stack[_data_stack__WEBPACK_IMPORTED_MODULE_1__.counter]\r\n        li.className = \"list-group-item\"\r\n        li.appendChild(title)\r\n        _index__WEBPACK_IMPORTED_MODULE_0__.posts.appendChild(li)\r\n    }\r\n}\r\n\r\nconst deletePost = () => {\r\n    const removed = _data_stack__WEBPACK_IMPORTED_MODULE_1__.stack.pop()\r\n    if (_data_stack__WEBPACK_IMPORTED_MODULE_1__.counter === 0) {\r\n        _index__WEBPACK_IMPORTED_MODULE_0__.posts.innerHTML = \"<h1> Empty stack. </h1>\"\r\n        return\r\n    }\r\n    _data_stack__WEBPACK_IMPORTED_MODULE_1__.counter-=1\r\n    const getRemoved = document.getElementById(removed)\r\n    getRemoved.remove()\r\n}\r\n\n\n//# sourceURL=webpack://simple-app/./src/controllers/PostController.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"addPost\": () => (/* binding */ addPost),\n/* harmony export */   \"deletePost\": () => (/* binding */ deletePost)\n/* harmony export */ });\n/* harmony import */ var _domElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../domElements */ \"./src/domElements.js\");\n/* harmony import */ var _data_stack__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../data/stack */ \"./src/data/stack.js\");\n/* harmony import */ var _utils_MakeID__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/MakeID */ \"./src/utils/MakeID.js\");\n\r\n\r\n\r\n\r\nif (_data_stack__WEBPACK_IMPORTED_MODULE_1__.stack.length === 0) {\r\n    _domElements__WEBPACK_IMPORTED_MODULE_0__.posts.innerHTML = \"<h1>Add or reduce elements!</h1>\"\r\n}\r\n\r\n\r\nconst addPost = () => {\r\n    const before = _data_stack__WEBPACK_IMPORTED_MODULE_1__.stack.length\r\n    _data_stack__WEBPACK_IMPORTED_MODULE_1__.stack.push((0,_utils_MakeID__WEBPACK_IMPORTED_MODULE_2__.default)(5))\r\n    if (_data_stack__WEBPACK_IMPORTED_MODULE_1__.stack.length > before) {\r\n        const li = document.createElement(\"li\")\r\n        const title = document.createTextNode(_data_stack__WEBPACK_IMPORTED_MODULE_1__.stack[before])\r\n        li.id = _data_stack__WEBPACK_IMPORTED_MODULE_1__.stack[before]\r\n        console.log(_data_stack__WEBPACK_IMPORTED_MODULE_1__.stack)\r\n        console.log(\"ID:\", li.id)\r\n        li.className = \"list-group-item\"\r\n        li.appendChild(title)\r\n        _domElements__WEBPACK_IMPORTED_MODULE_0__.posts.appendChild(li)\r\n    }\r\n}\r\n\r\nconst deletePost = () => {\r\n    const removed = _data_stack__WEBPACK_IMPORTED_MODULE_1__.stack.pop()\r\n    const before = _data_stack__WEBPACK_IMPORTED_MODULE_1__.stack.length\r\n    console.log(\"REMOVED\", removed)\r\n    if (before === 0) {\r\n        console.log(_data_stack__WEBPACK_IMPORTED_MODULE_1__.stack.length)\r\n        _domElements__WEBPACK_IMPORTED_MODULE_0__.posts.innerHTML = \"<h1> Empty stack. </h1>\"\r\n        return\r\n    }\r\n    const getRemoved = document.getElementById(removed)\r\n    getRemoved.remove()\r\n}\r\n\n\n//# sourceURL=webpack://simple-app/./src/controllers/PostController.js?");
 
 /***/ }),
 
@@ -30,13 +30,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/domElements.js":
+/*!****************************!*\
+  !*** ./src/domElements.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"posts\": () => (/* binding */ posts),\n/* harmony export */   \"add\": () => (/* binding */ add),\n/* harmony export */   \"reduce\": () => (/* binding */ reduce)\n/* harmony export */ });\nconst posts = document.getElementById(\"posts\")\r\nconst add = document.getElementById(\"add\")\r\nconst reduce = document.getElementById(\"reduce\")\r\n\n\n//# sourceURL=webpack://simple-app/./src/domElements.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"posts\": () => (/* binding */ posts),\n/* harmony export */   \"add\": () => (/* binding */ add),\n/* harmony export */   \"reduce\": () => (/* binding */ reduce)\n/* harmony export */ });\n/* harmony import */ var _controllers_PostController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./controllers/PostController */ \"./src/controllers/PostController.js\");\n\r\n\r\nconst posts = document.querySelector(\"#posts\")\r\nconst add = document.getElementById(\"add\")\r\nconst reduce = document.getElementById(\"reduce\")\r\n\r\n\r\nadd.addEventListener(\"click\", _controllers_PostController__WEBPACK_IMPORTED_MODULE_0__.addPost)\r\nreduce.addEventListener(\"click\", _controllers_PostController__WEBPACK_IMPORTED_MODULE_0__.deletePost)\n\n//# sourceURL=webpack://simple-app/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _controllers_PostController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./controllers/PostController */ \"./src/controllers/PostController.js\");\n/* harmony import */ var _domElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./domElements */ \"./src/domElements.js\");\n\r\n\r\n\r\n_domElements__WEBPACK_IMPORTED_MODULE_1__.add.addEventListener(\"click\", _controllers_PostController__WEBPACK_IMPORTED_MODULE_0__.addPost)\r\n_domElements__WEBPACK_IMPORTED_MODULE_1__.reduce.addEventListener(\"click\", _controllers_PostController__WEBPACK_IMPORTED_MODULE_0__.deletePost)\n\n//# sourceURL=webpack://simple-app/./src/index.js?");
 
 /***/ }),
 
@@ -109,7 +119,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
 /******/ 	
 /******/ })()
